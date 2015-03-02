@@ -4,6 +4,7 @@ class CreateShifts < ActiveRecord::Migration
       t.date :date
       t.time :time
       t.string :description
+      t.string :job
       t.belongs_to :user, index: true
 
       t.timestamps
