@@ -15,11 +15,11 @@
 class Shift < ActiveRecord::Base
 
   # Before
-  before_create { self.job = user.job}
+  before_create { self.job = user.job }
 
   # Associations
   belongs_to :user
-  has_many   :comments
+  has_many   :comments, dependent: :destroy
 
   # Validations
   validates_presence_of :date
