@@ -1,0 +1,13 @@
+<%= form_for @shift do |f| %>
+  <%= f.label :date %>
+  <%= f.date_select  :date %>
+
+  <%= f.label :time %>
+  <%= f.time_select  :time %>
+
+  <%= f.label :description %>
+  <%= f.text_field  :description, placeholder: "I want for monday at 8pm" %>
+
+  <%= f.submit %>
+
+<% end %>

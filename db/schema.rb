@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302154423) do
+ActiveRecord::Schema.define(version: 20150302162949) do
+
+  create_table "shifts", force: true do |t|
+    t.date     "date"
+    t.time     "time"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shifts", ["user_id"], name: "index_shifts_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

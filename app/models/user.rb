@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 
+  # Secure password
   has_secure_password
+
+  # Associations
+  has_many :shifts
 
   # Validations
   validates :first_name, presence: true
