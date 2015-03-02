@@ -1,12 +1,3 @@
 <h1>Shifts</h1>
 
-<% @shifts.each do |shift| %>
-  <article>
-    <%= shift.date %>
-    <%= shift.time %>
-    <%= shift.description %>
-    <%= shift.user.name %>
-    <%= time_ago_in_words shift.created_at %> ago
-  </article>
-
-<% end %>
+<%= render @shifts %>
