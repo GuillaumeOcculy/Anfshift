@@ -3,7 +3,8 @@ class ShiftsController < ApplicationController
   before_action :find_shift, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shifts = Shift.all
+    # @shifts = Shift.where(job: current_user.job)
+    @shifts = Shift.by_job(current_user)
   end
 
   def new

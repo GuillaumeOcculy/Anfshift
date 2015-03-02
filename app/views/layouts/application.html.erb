@@ -9,9 +9,9 @@
 
 <body>
   <%= link_to 'Home', root_path %>
+  <%= link_to 'logout', signout_path %>
   <% if current_user %>
     <p> Hello <%= current_user.email %> ! </p>
-    <%= link_to 'logout', signout_path %>
   <% else %>
     <%= link_to 'Sign up', signup_path %>
     <%= link_to 'Sign in', signin_path %>

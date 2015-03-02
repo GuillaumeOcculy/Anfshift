@@ -1,6 +1,6 @@
 <article>
-  <%= shift.date %>
-  <%= shift.time %>
+  <%= shift.date.strftime "%d/%m" %>
+  <%= shift.time.strftime "at %I:%M"  %>
   <%= shift.description %>
   <%= shift.user.name %>
   <%= time_ago_in_words shift.created_at %> ago

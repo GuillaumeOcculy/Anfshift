@@ -17,6 +17,9 @@ class Shift < ActiveRecord::Base
   # Before
   before_create { self.job = user.job }
 
+  # Scopes
+  scope :by_job,  ->(user)  { where(job: user.job) }
+
   # Associations
   belongs_to :user
   has_many   :comments, dependent: :destroy
