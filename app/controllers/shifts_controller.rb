@@ -4,7 +4,7 @@ class ShiftsController < ApplicationController
 
   def index
     # @shifts = Shift.where(job: current_user.job)
-    @shifts = Shift.by_job(current_user)
+    @shifts = Shift.by_job(current_user).recent
   end
 
   def new

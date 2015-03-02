@@ -19,6 +19,7 @@ class Shift < ActiveRecord::Base
 
   # Scopes
   scope :by_job,  ->(user)  { where(job: user.job) }
+  scope :recent, -> { order('created_at desc')}
 
   # Associations
   belongs_to :user

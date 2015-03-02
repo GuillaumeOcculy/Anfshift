@@ -1,3 +1,4 @@
 <h1> <%= current_user.job.titleize %>'s Shifts</h1>
 
+<%= link_to 'Create a shift', new_shift_path %>
 <%= render @shifts %>

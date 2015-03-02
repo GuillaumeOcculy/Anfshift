@@ -1,7 +1,15 @@
-<article>
-  <%= shift.date.strftime "%d/%m" %>
-  <%= shift.time.strftime "at %I:%M"  %>
-  <%= shift.description %>
-  <%= shift.user.name %>
-  <%= time_ago_in_words shift.created_at %> ago
+<article class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <%= shift.date.strftime "%d/%m" %> <%= shift.time.strftime "at %I:%M" %> </h3>
+  </div>
+
+  <div class="panel-body">
+    <p> <%= shift.description %> </p>
+    <p> <%= link_to 'I want this shift !', shift %> </p>
+  </div>
+
+  <div class="panel-footer">
+    <p> published by  <strong><%= shift.user.name %></strong>  </p>
+    <p> <%= time_ago_in_words shift.created_at %> </p>
+  </div>
 </article>
