@@ -3,3 +3,27 @@
 <p> <%= @shift.date %> </p>
 <p> <%= @shift.time %> </p>
 <p> <%= @shift.description %> </p>
+
+
+<h2>Comments</h2>
+
+<% @shift.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.content %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= comment.user.name if comment.user %>
+  </p>
+  
+<% end %>
+
+<%= form_for([@shift, @shift.comments.build]) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+
+<% end %>

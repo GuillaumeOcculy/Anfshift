@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :shifts
+  resources :shifts do
+    resources :comments
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
+  get 'signup' => 'users#new', as: :signup
+  get 'signin' => 'sessions#new', as: :signin
+  get 'signout' => 'sessions#destroy', as: :signout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#new'
+  root 'shifts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

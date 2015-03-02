@@ -10,6 +10,7 @@
 #  job             :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  is_admin        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -17,16 +18,19 @@ class User < ActiveRecord::Base
   # Secure password
   has_secure_password
 
+  # Before
+  before_save { self.email = email.downcase }
+
   # Associations
   has_many :shifts
-
+  has_many :comments
+  
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password_digest, presence: true
+  validates :password_digest, presence: true, length: { minimum: 5 }
   validates :job, presence: true
-
 
   # Public Methods
   def name

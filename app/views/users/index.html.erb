@@ -1,1 +1,10 @@
 <h1>Users</h1>
+
+<% @users.each do |user| %>
+  <article>
+    Nom: <%= user.name %> |
+    Email: <%= user.email %> |
+    Job: <%= user.job %> | 
+  </article>
+
+<% end %>

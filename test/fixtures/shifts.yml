@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  date        :date
 #  time        :time
-#  description :string(255)
+#  description :text(255)
 #  job         :string(255)
 #  user_id     :integer
 #  created_at  :datetime

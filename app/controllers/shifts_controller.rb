@@ -2,6 +2,10 @@ class ShiftsController < ApplicationController
 
   before_action :find_shift, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @shifts = Shift.all
+  end
+
   def new
     @shift  = current_user.shifts.build
   end
