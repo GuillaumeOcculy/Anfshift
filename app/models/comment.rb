@@ -11,6 +11,15 @@
 #
 
 class Comment < ActiveRecord::Base
+
+  # Associations
   belongs_to :user
   belongs_to :shift
+
+  # Scopes
+  scope :recent, -> { order('created_at desc') }
+
+  # Validations
+
+  validates_presence_of :content
 end

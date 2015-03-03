@@ -1,4 +1,8 @@
-<h1> <%= current_user.job.titleize if current_user %>'s Shifts</h1>
+<% if current_user %>
+  <h1 class="text-center"> <%= current_user.job.titleize %>'s Shifts</h1>
+<% else %>
+  <h1 class="text-center">Shifts</h1>
+<% end %>
 
-<%= link_to 'Create a shift', new_shift_path %>
+<%= link_to 'Submit a shift', new_shift_path, class: "btn btn-success" %>
 <%= render @shifts %>

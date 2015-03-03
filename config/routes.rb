@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users do
+    resources :shifts, only: [:index, :show]
+  end
+  
   resources :shifts do
     resources :comments
   end

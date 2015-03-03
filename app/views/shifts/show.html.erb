@@ -1,13 +1,28 @@
-<h1>Shift #<%= @shift.id %> </h1>
+<div class="jumbotron">
+  <h1 class="text-center">Shift #<%= @shift.id %> </h1>
+</div>
 
-<p> <%= @shift.date %> </p>
-<p> <%= @shift.time %> </p>
-<p> <%= @shift.description %> </p>
+<article class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <%=  link_to "##{@shift.id}", @shift %> - <%= @shift.date.strftime "%A, %d %B" %> <%= @shift.time.strftime "at %I:%M" %></h3>
+  </div>
+
+  <div class="panel-body">
+    <p> <%= @shift.description %> </p>
+    <p> <%= link_to 'See answers !', @shift %> </p>
+    <p class'text-right'> <%= link_to '', shift_path(@shift), class: 'glyphicon glyphicon-trash', method: :delete %> </p>
+  </div>
+
+  <div class="panel-footer">
+    <p> published by  <strong><%= @shift.user.name %></strong>  </p>
+    <p> <%= time_ago_in_words @shift.created_at %> </p>
+  </div>
+</article>
 
 
 <h2>Comments</h2>
 
-<%= render @shift.comments %>
+<%= render @shift.comments.recent %>
 
 <h2>Add Comments</h2>
 <%= render 'comments/form' %>

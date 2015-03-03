@@ -1,9 +1,12 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.content %>
-</p>
+<article class="panel panel-success">
+  <div class="panel-heading">
+    <p> #<%= comment.id %> </p>
+  </div>
+  <div class="panel-body">
+    <p> <%= comment.content %> </p>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= comment.user.name if comment.user %>
-</p>
+  <div class="panel-footer">
+    <p> Published by <%= comment.user.name if comment.user %> </p>
+  </div>
+</article>

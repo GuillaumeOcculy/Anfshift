@@ -1,6 +1,20 @@
-<h1> <%= @user.name %> </h1>
+<div class="jumbotron">
+  <h1 class="text-center"><%= @user.name.titleize %>'s profile</h1>
+  <p><%= link_to 'Edit my profile', edit_user_path(@user), class: 'btn btn-primary btn-lg' %></p>
+</div>
 
-<p> <%= @user.email %> </p>
-<p> <%= @user.job %> </p>
+<h2>My shifts</h2>
 
-<%= link_to 'edit', edit_user_path(@user) %>
+<% @shifts.each do |shift| %>
+  <article class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title"> <%=  link_to "##{shift.id}", shift %> - <%= shift.date.strftime "%A, %d %B" %> <%= shift.time.strftime "at %I:%M" %></h3>
+    </div>
+
+    <div class="panel-body">
+      <p> <%= shift.description %> </p>
+      <p> <%= link_to 'See answers !', shift %> </p>
+      <p class'text-right'> <%= link_to '', shift_path(shift), class: 'glyphicon glyphicon-trash', method: :delete %> </p>
+    </div>
+  </article>
+<% end %>

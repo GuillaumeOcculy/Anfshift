@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @shifts = @user.shifts
   end
 
   def new
