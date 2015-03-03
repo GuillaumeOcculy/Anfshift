@@ -8,16 +8,10 @@
 </head>
 
 <body>
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'logout', signout_path %>
-  <% if current_user %>
-    <p> Hello <%= current_user.email %> ! </p>
-  <% else %>
-    <%= link_to 'Sign up', signup_path %>
-    <%= link_to 'Sign in', signin_path %>
-  <% end %>
 
- <%= yield %>
+  <%= render 'layouts/header' %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>
