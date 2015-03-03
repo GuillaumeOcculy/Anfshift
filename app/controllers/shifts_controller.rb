@@ -1,6 +1,7 @@
 class ShiftsController < ApplicationController
 
   before_action :find_shift, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
 
   def index
     @shifts = current_user ? Shift.by_job(current_user).recent : Shift.recent
