@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def correct_user
+    
+  end
+
 end
