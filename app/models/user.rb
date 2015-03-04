@@ -3,14 +3,14 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  first_name      :string(255)
-#  last_name       :string(255)
 #  email           :string(255)
 #  password_digest :string(255)
 #  job             :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
 #  is_admin        :boolean          default(FALSE)
+#  slug            :string(255)
+#  name            :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -30,15 +30,14 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   # Validations
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true, length: { minimum: 5 }
   validates :job, presence: true
 
   # Public Methods
-  def name
-    "#{self.first_name} #{self.last_name}"
+  def first_name
+
   end
 
 end

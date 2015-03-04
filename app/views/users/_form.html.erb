@@ -1,13 +1,8 @@
 <%= form_for @user, class: 'form-horizontal' do |f| %>
 
   <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control' %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -16,13 +11,13 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :job %>
-    <%= f.select :job,  [['Impact 1', 'impact_1'], ['Impact 2', 'impact_2'], ['Cashier','cashier'], ['Model', 'model'], ['Ops', 'ops'], ['Stylist', 'stylist']], {}, class: 'form-control' %>
+    <%= f.label :password  %>
+    <%= f.password_field :password, class: 'form-control'%>
   </div>
 
   <div class="form-group">
-    <%= f.label :password  %>
-    <%= f.password_field :password, class: 'form-control'%>
+    <%= f.label :job %>
+    <%= f.select :job,  [['Impact 1', 'impact_1'], ['Impact 2', 'impact_2'], ['Cashier','cashier'], ['Model', 'model'], ['Ops', 'ops'], ['Stylist', 'stylist']], {}, class: 'form-control' %>
   </div>
 
   <div class="form-group">

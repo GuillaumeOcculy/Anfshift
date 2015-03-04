@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304081633) do
+ActiveRecord::Schema.define(version: 20150304090313) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 20150304081633) do
   add_index "shifts", ["user_id"], name: "index_shifts_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "job"
@@ -59,9 +57,11 @@ ActiveRecord::Schema.define(version: 20150304081633) do
     t.datetime "updated_at"
     t.boolean  "is_admin",        default: false
     t.string   "slug"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
