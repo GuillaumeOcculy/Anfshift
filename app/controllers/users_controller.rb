@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [:new, :create]
-  before_action :correct_user, except: [:new, :index]
-  before_action :current_admin, only: :index
+  # before_action :correct_user, except: [:new, :create, :index]
+  # before_action :current_admin, only: :index
 
   def index
     @users  = User.all
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    unless current_user && @user.id == current_user.id || current_user.is_admin
+    unless current_user && @user.id == current_user.id || current_user && current_user.is_admin
       flash[:danger] = 'You are not a correct user !'
       redirect_to root_path
     end

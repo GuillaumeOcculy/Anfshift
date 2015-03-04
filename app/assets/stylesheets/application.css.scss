@@ -14,3 +14,19 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.navbar{
+  background-color: #1abc9c;
+}
+
+.navbar-default{
+  .navbar-brand{
+    color: #ecf0f1;
+  }
+  .navbar-text{
+    color: #ecf0f1;
+  }
+  .navbar-nav > li > a{
+    color: #ecf0f1;
+  }
+}
