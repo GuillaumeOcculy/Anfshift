@@ -17,10 +17,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       sign_in @user
-      redirect_to @user
+      redirect_to @user, flash: {success: 'Account has been created !'}
     else
+      flash[:danger] = 'Account has not been updated !'
       render :new
     end
   end
@@ -29,18 +30,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update!(user_params)
-      redirect_to @user
+    if @user.update(user_params)
+      redirect_to @user, flash: {success: 'Account has been updated !'}
     else
+      flash[:danger] = 'Account has not been updated !'
       render :edit
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to root_path
+    reset_session
+    redirect_to root_path, flash: {warning: 'Account has been deleted !'}
   end
-
 
   private
 

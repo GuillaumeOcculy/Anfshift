@@ -6,6 +6,7 @@
   <div class="panel-body">
     <p> <%= shift.description %> </p>
     <p> <%= link_to 'I want this shift !', shift %> </p>
+    <span class="label label-info"> <%= shift.job.titleize %> </span>
   </div>
 
   <div class="panel-footer">

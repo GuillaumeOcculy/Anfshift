@@ -1,10 +1,16 @@
 <div class="jumbotron">
   <h1 class="text-center"><%= @user.name.titleize %>'s profile</h1>
+  <h2 class="text-center"><%= @user.job.titleize %></h2>
   <p><%= link_to 'Edit my profile', edit_user_path(@user), class: 'btn btn-primary btn-lg' %></p>
+  <p><%= link_to 'Delete my profile', user_path(@user), method: :delete, class: 'btn btn-danger btn-lg' %></p>
 </div>
 
+<p>
+  <%= link_to 'Submit a shift', new_shift_path, class: 'btn btn-default btn-lg' %>
+</p>
 <h2>My shifts</h2>
 
+<% if @shifts.any? %>
 <% @shifts.each do |shift| %>
   <article class="panel panel-info">
     <div class="panel-heading">
@@ -15,6 +21,11 @@
       <p> <%= shift.description %> </p>
       <p> <%= link_to 'See answers !', shift %> </p>
       <p class'text-right'> <%= link_to '', shift_path(shift), class: 'glyphicon glyphicon-trash', method: :delete %> </p>
+      <span class="label label-info"> <%= shift.job.titleize %> </span>
     </div>
   </article>
+<% end %>
+
+<% else %>
+  <p>You have not posted a shift yet !</p>
 <% end %>

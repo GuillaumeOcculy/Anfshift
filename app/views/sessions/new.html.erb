@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <%= label_tag :email %>
-    <%= email_field_tag  :email, nil, class: 'form-control' %>
+    <%= email_field_tag  :email, nil, placeholder: 'Ex: john@doe.com', class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -18,4 +18,4 @@
 
 <% end %>
 
-<%= link_to "You don't have an account ? Sign up !", signin_path %>
+<%= link_to "You don't have an account ? Sign up !", signup_path %>

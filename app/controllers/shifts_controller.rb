@@ -13,9 +13,10 @@ class ShiftsController < ApplicationController
 
   def create
     @shift  = current_user.shifts.build(shift_params)
-    if @shift.save!
-      redirect_to @shift
+    if @shift.save
+      redirect_to @shift, flash: {success: 'Shift has been created !'}
     else
+      flash[:danger] = 'Shift has not been created !'
       render :new
     end
   end
@@ -27,16 +28,17 @@ class ShiftsController < ApplicationController
   end
 
   def update
-    if @shift.update!(shift_params)
-      redirect_to @shift
+    if @shift.update(shift_params)
+      redirect_to @shift, flash: {success: 'shift has been updated !'}
     else
+      flash[:danger] = 'Shift has not been updated !'
       render :edit
     end
   end
 
   def destroy
     @shift.destroy
-    redirect_to root_path
+    redirect_to root_path, flash: {warning: 'Shift has been destroyed !'}
   end
 
   private
