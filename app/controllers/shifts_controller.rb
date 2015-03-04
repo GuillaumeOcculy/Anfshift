@@ -50,4 +50,11 @@ class ShiftsController < ApplicationController
   def find_shift
     @shift  = Shift.find(params[:id])
   end
+
+  def correct_user
+    unless current_user && @user.id == current_user.id || current_user.is_admin
+      flash[:danger] = 'You are not a correct user !'
+      redirect_to root_path
+    end
+  end
 end

@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true, length: { minimum: 5 }
   validates :job, presence: true
+  validates_inclusion_of :job, :in => ["impact_1", "impact_2", "cashier", "model", "ops", "stylist"]
 
   # Public Methods
   def first_name

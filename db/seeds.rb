@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-User.create(name: 'admin test', email: 'admin@admin.com', password: 'qqqqqq', job: 'impact', is_admin: true)
-User.create(name: 'guillaume west', email: 'guillaume@west.com', password: 'qqqqqq', job: 'impact')
+User.create(name: 'admin test', email: 'admin@admin.com', password: 'qqqqqq', job: 'impact_2', is_admin: true)
+User.create(name: 'guillaume west', email: 'guillaume@west.com', password: 'qqqqqq', job: 'impact_2')
 User.create(name: 'plop plop', email: 'plop@plop.com', password: 'qqqqqq', job: 'model')
 
 Shift.destroy_all

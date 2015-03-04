@@ -26,8 +26,10 @@ class Shift < ActiveRecord::Base
   has_many   :comments, dependent: :destroy
 
   # Validations
-  validates_presence_of :date
-  validates_presence_of :time
-  validates_presence_of :description
+  validates_presence_of  :date
+  validates_presence_of  :time
+  validates_presence_of  :description
+  validates_presence_of  :job
+  validates_inclusion_of :job, :in => ["impact_1", "impact_2", "cashier", "model", "ops", "stylist"]
 
 end
