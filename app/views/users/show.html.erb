@@ -1,8 +1,8 @@
 <div class="jumbotron">
   <h1 class="text-center"><%= @user.name.titleize %>'s profile</h1>
   <h2 class="text-center"><%= @user.job.titleize %></h2>
-  <p><%= link_to 'Edit my profile', edit_user_path(@user), class: 'btn btn-primary btn-lg' %></p>
-  <p><%= link_to 'Delete my profile', user_path(@user), method: :delete, class: 'btn btn-danger btn-lg' %></p>
+  <p><%= link_to 'Edit profile', edit_user_path(@user), class: 'btn btn-primary btn-lg' %></p>
+  <p><%= link_to 'Delete profile', user_path(@user), method: :delete, class: 'btn btn-danger btn-lg' %></p>
 </div>
 
 <p>

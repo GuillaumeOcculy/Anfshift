@@ -29,8 +29,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def correct_user
-    
+  def current_admin
+    if current_user && !current_user.is_admin
+      redirect_to root_path, flash: {danger: "You are not an admin !"}
+    end
   end
 
 end
