@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   # Before
   before_save { self.email = email.downcase }
 
+  # FriendlyID
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   # Associations
   has_many :shifts,   dependent: :destroy
   has_many :comments, dependent: :destroy

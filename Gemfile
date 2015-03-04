@@ -43,7 +43,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 # FriendlyID
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.1.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
