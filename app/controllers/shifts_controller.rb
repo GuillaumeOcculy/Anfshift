@@ -2,6 +2,8 @@ class ShiftsController < ApplicationController
 
   before_action :find_shift, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: :index
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
 
   def index
     @shifts = current_user ? Shift.by_job(current_user).recent : Shift.recent
@@ -12,8 +14,7 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    @shift  = current_user.shifts.build(shift_params)
-    if @shift.save
+    if @shift  = current_user.shifts.create(shift_params)
       redirect_to @shift, flash: {success: 'Shift has been created !'}
     else
       flash[:danger] = 'Shift has not been created !'
@@ -52,7 +53,7 @@ class ShiftsController < ApplicationController
   end
 
   def correct_user
-    unless current_user && @user.id == current_user.id || current_user.is_admin
+    if current_user && ((@shift.user_id != current_user.id) && !current_user.is_admin)
       flash[:danger] = 'You are not a correct user !'
       redirect_to root_path
     end
