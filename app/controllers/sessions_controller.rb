@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
       sign_in user
-      redirect_to user
+      redirect_to user, flash: {success: "You are logged in !"}
     else
       render :new
     end
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path
+    redirect_to root_path, flash: {warning: "You are logged out !"}
   end
 end

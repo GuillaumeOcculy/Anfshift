@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @title_button = "Create an account"
   end
 
   def create
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @title_button = "Update my account"
   end
 
   def update
