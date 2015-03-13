@@ -44,6 +44,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # FriendlyID
 gem 'friendly_id', '~> 5.1.0'
+
+# Progress bar loaded
+gem 'nprogress-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
