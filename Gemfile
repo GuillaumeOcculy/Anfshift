@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
-  gem 'spring'
+  # gem 'spring'
   gem 'quiet_assets'
   gem 'annotate'
   gem 'sqlite3' # Use sqlite3 as the database for Active Record

@@ -14,7 +14,9 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    if @shift  = current_user.shifts.create(shift_params)
+    @shift  = current_user.shifts.build(shift_params)
+    @shift.job = current_user.job
+    if @shift.save!
       redirect_to @shift, flash: {success: 'Shift has been created !'}
     else
       flash[:danger] = 'Shift has not been created !'
@@ -45,7 +47,7 @@ class ShiftsController < ApplicationController
   private
 
   def shift_params
-    params.require(:shift).permit(:date, :time, :description)
+    params.require(:shift).permit(:date, :time, :description, :job, :user_id)
   end
 
   def find_shift
