@@ -1,15 +1,20 @@
 class CommentsController < ApplicationController
 
   before_action :signed_in_user
-  
+
   def index
     @comments = Comment.all
   end
 
   def create
     @shift = Shift.find(params[:shift_id])
-    @comment = @shift.comments.create(comment_params.merge(user_id: current_user.id))
-    redirect_to @shift, success: 'Comment created !'
+    @comment = @shift.comments.build(comment_params.merge(user_id: current_user.id))
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to @shift, success: 'Comment created !' }
+        format.js
+      end
+    end
   end
 
   private

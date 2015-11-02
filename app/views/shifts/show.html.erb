@@ -21,7 +21,10 @@
 
 <h2>Answers</h2>
 
-<%= render @shift.comments.recent %>
+
+<div id='comments'>
+  <%= render @shift.comments.recent %>
+</div>
 
 <h2>Add Answer</h2>
 <%= render 'comments/form' %>

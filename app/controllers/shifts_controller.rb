@@ -16,7 +16,7 @@ class ShiftsController < ApplicationController
   def create
     @shift  = current_user.shifts.build(shift_params)
     @shift.job = current_user.job
-    if @shift.save!
+    if @shift.save
       redirect_to @shift, flash: {success: 'Shift has been created !'}
     else
       flash[:danger] = 'Shift has not been created !'
