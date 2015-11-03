@@ -9,10 +9,14 @@ class CommentsController < ApplicationController
   def create
     @shift = Shift.find(params[:shift_id])
     @comment = @shift.comments.build(comment_params.merge(user_id: current_user.id))
-    if @comment.save
-      respond_to do |format|
+    respond_to do |format|
+
+      if @comment.save
         format.html { redirect_to @shift, success: 'Comment created !' }
         format.js
+      else
+        format.html { render :index }
+        format.js 
       end
     end
   end

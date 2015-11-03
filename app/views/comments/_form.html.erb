@@ -1,12 +1,14 @@
 <%= form_for([@shift, @shift.comments.build], remote: true) do |f| %>
 
+  <div class="errors"></div>
+
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.submit nil, class: 'btn btn-default' %>
+    <%= f.submit nil, class: 'btn btn-default', data: { disable_with: 'please wait..' } %>
   </div>
 
 

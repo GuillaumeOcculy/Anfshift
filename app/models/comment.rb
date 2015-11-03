@@ -20,6 +20,6 @@ class Comment < ActiveRecord::Base
   scope :recent, -> { order('created_at desc') }
 
   # Validations
-
   validates_presence_of :content
+  
 end
