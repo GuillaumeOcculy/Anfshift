@@ -1,4 +1,4 @@
-<%= form_for([@shift, @shift.comments.build], remote: true) do |f| %>
+<%= form_for([@shift, @shift.comments.build]) do |f| %>
 
   <div class="errors"></div>
 
@@ -8,7 +8,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit nil, class: 'btn btn-default', data: { disable_with: 'please wait..' } %>
+    <%= f.submit nil, class: 'btn btn-default', id: 'submit' %>
   </div>
 
 

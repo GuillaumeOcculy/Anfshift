@@ -7,9 +7,14 @@ class CommentsController < ApplicationController
   end
 
   def create
+    puts "HELLLOOODSKLADJSALKDJASKLDJALSKD AAAAAAHHHHH"
+    puts " THIS IS PARAMS : #{params.inspect}"
     @shift = Shift.find(params[:shift_id])
     @comment = @shift.comments.build(comment_params.merge(user_id: current_user.id))
     @comment.save
+      respond_to do |format|
+        format.json { render json: @comment }
+      end
   end
 
   def destroy
